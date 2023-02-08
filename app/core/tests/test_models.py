@@ -1,6 +1,7 @@
 """
 Tests for models
 """
+from unittest.mock import patch
 from decimal import Decimal
 
 from django.test import TestCase
@@ -89,3 +90,5 @@ class ModelTests(TestCase):
                                                       name='Ingredient1')
 
         self.assertEqual(str(ingredient), ingredient.name)
+
+
