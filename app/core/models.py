@@ -14,7 +14,7 @@ from django.contrib.auth.models import (
 from django.conf import settings
 
 
-def recipe_image_file_path(filename):
+def recipe_image_file_path(instance, filename):
     """Generate file path for new recipe image."""
     ext = filename.split('.')[1]
     filename = f'{uuid.uuid4()}.{ext}'
@@ -34,7 +34,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password):
-        """Create, save and return a new superuser."""
+        """Create and return a new superuser."""
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
